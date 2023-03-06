@@ -68,6 +68,10 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.44.2")
     kapt("com.google.dagger:hilt-android-compiler:2.44.2")
 
+    implementation 'com.github.Kaaveh:sdp-compose:1.1.0'
+    // ViewModel utilities for Compose
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
+
 
 
 }

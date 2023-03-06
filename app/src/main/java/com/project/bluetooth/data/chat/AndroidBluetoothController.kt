@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.update
 class AndroidBluetoothController(private val context: Context) : BluetoothController {
 
     private val bluetoothManager by lazy {
-        context.getSystemServiceName(BluetoothManager::class.java) as BluetoothManager
+        context.getSystemService(BluetoothManager::class.java)
     }
     private val bluetoothAdapter by lazy {
         bluetoothManager.adapter
@@ -73,10 +73,9 @@ class AndroidBluetoothController(private val context: Context) : BluetoothContro
 
     @SuppressLint("MissingPermission")
     override fun stopDiscovery() {
-        if (PermissionManager.hasPermission(context,android.Manifest.permission.BLUETOOTH_SCAN)){
+        if (PermissionManager.hasPermission(context, android.Manifest.permission.BLUETOOTH_SCAN)) {
             bluetoothAdapter.cancelDiscovery()
-        }
-        else{
+        } else {
             return
         }
     }
